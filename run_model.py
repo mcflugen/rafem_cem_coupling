@@ -14,14 +14,14 @@ ANGLE_HIGHNESS = float(sys.argv[2])
 WAVE_HEIGHT = float(sys.argv[3])
 # SEED = int(sys.argv[4])
 
-N_DAYS = 365
+N_DAYS = 365 * 100
 Save_Daily_Timesteps = 1
 Save_Yearly_Timesteps = 0
 Save_Figs = 1
 Save_Arrays = 0
 Save_Fluxes = 0
 flux_int = 0  # days
-save_int = 10  # days
+save_int = 365 * 10  # days
 
 
 def plot_coast(spacing, z):
@@ -63,11 +63,12 @@ raf_args = raf.setup(
     number_of_rows=100,
     row_spacing=0.1,
     column_spacing=0.1,
-    random_seed=1027,
+    random_seed=1111,
     rate_of_sea_level_rise=0.0,
     channel_discharge=10.,
     upstream_elevation=5.,
     superelevation_ratio=1.0,
+    save_avulsions=os.path.abspath("output_data/river_info.out"),
 )
 waves_args = waves.setup("_run_waves")
 
